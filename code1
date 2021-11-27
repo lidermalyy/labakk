@@ -1,1 +1,44 @@
 
+#include <iostream>
+
+int main()
+{
+    int B[14] = { 5,1,-5,9,-12,6,11,-2,34,-33,71,12,-17,-13 }, maxPlus, maxMinus;
+    maxPlus = B[1];
+    maxMinus = maxPlus;
+    for (int i = 0; i < 14; i++)
+    {
+        if (maxPlus < B[i])
+        {
+            maxPlus = B[i];
+        }
+        if (B[i] < 0)
+        {
+            maxMinus = B[i];
+        }
+    }
+    for (int i = 0; i < 14; i++)
+    {
+        if (B[i] < 0 && maxMinus < B[i])
+        {
+            maxMinus = B[i];
+        }
+    }
+    for (int i = 0; i < 14; i++)
+    {
+        if (i % 2 == 0 && B[i] < 0)
+        {
+            B[i] = maxPlus;
+        }
+        if (i % 2 != 0)
+        {
+            B[i] = maxMinus;
+        }
+    }
+    for (int i = 0; i < 14; i++)
+    {
+        std::cout << B[i] << "\t";
+    }
+    std::cout << "\nmaxPlus = " << maxPlus;
+    std::cout << "\nmaxMinus = " << maxMinus;
+}
