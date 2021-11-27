@@ -16,7 +16,7 @@ int main()
         {
             maxPlus = B[i];
         }
-        if (B[i] < 0
+        if (B[i] < 0)
         {
             maxMinus = B[i];
         }
